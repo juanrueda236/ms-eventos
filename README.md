@@ -16,10 +16,10 @@ Repositorio de trabajo de la pareja para la preparación y evaluación del Módu
 
 ### Integrante 2 — Valeria
 
-- Nombre completo:
-- GitHub:
+- Nombre completo: Valeria POlanco muñoz
+- GitHub:@val-polanco
 - Aportes y actividades realizadas:
-  -
+  -Preparacion de ms-Usuarios
   -
   -
 
