@@ -1,0 +1,14 @@
+[Unit]
+Description=ms-auditorios
+After=network.target
+
+[Service]
+Type=simple
+User=vagrant
+WorkingDirectory=/opt/m3/ms-auditorios
+EnvironmentFile=/opt/m3/ms-auditorios/.env
+ExecStart=/usr/bin/node src/index.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

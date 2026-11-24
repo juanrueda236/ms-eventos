@@ -1,4 +1,3 @@
-
 class Evento {
   constructor({
     id,
@@ -6,7 +5,8 @@ class Evento {
     nombre,
     fecha,
     asistentes_esperados,
-    tipo
+    tipo,
+    auditorio_id
   }) {
     this.id = id;
     this.codigo = codigo;
@@ -18,8 +18,8 @@ class Evento {
 
     this.asistentes_esperados = asistentes_esperados;
     this.tipo = tipo;
+    this.auditorio_id = auditorio_id;
   }
 }
 
 module.exports = Evento;
-
