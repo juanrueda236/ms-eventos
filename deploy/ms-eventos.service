@@ -1,0 +1,14 @@
+[Unit]
+Description=ms-eventos
+After=network.target
+
+[Service]
+Type=simple
+User=vagrant
+WorkingDirectory=/opt/m3/ms-eventos
+EnvironmentFile=/opt/m3/ms-eventos/.env
+ExecStart=/usr/bin/node src/server.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
