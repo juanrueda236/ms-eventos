@@ -1,4 +1,3 @@
-
 const db = require('../config/db');
 
 async function listar(filtros = {}) {
@@ -7,7 +6,6 @@ async function listar(filtros = {}) {
       'SELECT * FROM eventos WHERE tipo = ?',
       [filtros.tipo]
     );
-
     return rows;
   }
 
@@ -39,14 +37,22 @@ async function buscarPorCodigo(codigo) {
 async function crear(evento) {
   const [resultado] = await db.execute(
     `INSERT INTO eventos
-      (codigo, nombre, fecha, asistentes_esperados, tipo)
-     VALUES (?, ?, ?, ?, ?)`,
+    (
+      codigo,
+      nombre,
+      fecha,
+      asistentes_esperados,
+      tipo,
+      auditorio_id
+    )
+    VALUES (?, ?, ?, ?, ?, ?)`,
     [
       evento.codigo,
       evento.nombre,
       evento.fecha,
       evento.asistentes_esperados,
-      evento.tipo
+      evento.tipo,
+      evento.auditorio_id
     ]
   );
 
@@ -56,8 +62,12 @@ async function crear(evento) {
 async function actualizar(id, evento) {
   const [resultado] = await db.execute(
     `UPDATE eventos
-     SET codigo = ?, nombre = ?, fecha = ?,
-         asistentes_esperados = ?, tipo = ?
+     SET codigo = ?,
+         nombre = ?,
+         fecha = ?,
+         asistentes_esperados = ?,
+         tipo = ?,
+         auditorio_id = ?
      WHERE id = ?`,
     [
       evento.codigo,
@@ -65,6 +75,7 @@ async function actualizar(id, evento) {
       evento.fecha,
       evento.asistentes_esperados,
       evento.tipo,
+      evento.auditorio_id,
       id
     ]
   );
